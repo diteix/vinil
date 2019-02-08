@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{951D8CF8-82D4-4105-8D3E-94F9CEEFF31E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vinil.Business</RootNamespace>
+    <AssemblyName>Vinil.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogs\Application.cs" />
+    <Compile Include="Catalogs\Contracts\Entities\ICatalog.cs" />
+    <Compile Include="Catalogs\Contracts\ICatalogsDataContext.cs" />
+    <Compile Include="Catalogs\Models\Catalog.cs" />
+    <Compile Include="Catalogs\Models\CatalogsModel.cs" />
+    <Compile Include="Common\BaseApplication.cs" />
+    <Compile Include="Common\Contracts\Entities\IBaseEntity.cs" />
+    <Compile Include="Common\Contracts\IDataContext.cs" />
+    <Compile Include="Common\Models\BaseModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\Application.cs" />
+    <Compile Include="Sales\Contracts\Entities\ISale.cs" />
+    <Compile Include="Sales\Contracts\ISalesDataContext.cs" />
+    <Compile Include="Sales\Models\Sale.cs" />
+    <Compile Include="Sales\Models\SalesModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vinil.CrossCutting\Vinil.CrossCutting.csproj">
+      <Project>{88A913E0-E73D-4387-8B42-C38753BFA2A8}</Project>
+      <Name>Vinil.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vinil\Vinil.csproj">
+      <Project>{0B795265-98BD-4FC2-9DF2-035C2B641D30}</Project>
+      <Name>Vinil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
